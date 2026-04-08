@@ -31,7 +31,6 @@ class User extends Authenticatable
         'password'          => 'hashed',
     ];
 
-    // ── Relasi ──
     public function pengaduan()
     {
         return $this->hasMany(Pengaduan::class, 'user_id');
@@ -42,13 +41,11 @@ class User extends Authenticatable
         return $this->hasMany(Tanggapan::class, 'admin_id');
     }
 
-    // ── Helper: apakah user ini admin? ──
     public function isAdmin(): bool
     {
         return $this->level === 'admin';
     }
 
-    // ── Helper: apakah user ini siswa? ──
     public function isSiswa(): bool
     {
         return $this->level === 'siswa';

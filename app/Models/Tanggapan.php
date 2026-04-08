@@ -22,17 +22,11 @@ class Tanggapan extends Model
         'tgl_tanggapan' => 'datetime'
     ];
 
-    /**
-     * Relasi ke Pengaduan
-     */
     public function pengaduan()
     {
         return $this->belongsTo(Pengaduan::class, 'pengaduan_id');
     }
 
-    /**
-     * Relasi ke Admin (User dengan level admin)
-     */
     public function admin()
     {
         return $this->belongsTo(User::class, 'admin_id');
